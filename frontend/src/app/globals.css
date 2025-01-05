@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #484848;
+  --foreground-light: #afafaf;
+
+  --accent-green: #369A77;
+  --accent-green-light: #AAD2C4;
+  --accent-green-lighter: #D6F2E8;
+  --accent-green-extralight: #deede8;
+  --accent-green-bg: #E4Ede9;
+  --accent-green-dark: #1D362E;
+
+  --accent-purple: #5E7FD5;
+  --accent-purple-light: #92A1E5;
+  --accent-purple-lighter: #D9E4FF;
+  --accent-purple-extralight: #e9effc;
+  --accent-purple-bg: #E6E4ED;
+  --accent-purple-dark: #373D5C;
+
+  --font-primary: 'Outfit', sans-serif;
+  --font-secondary: 'Nunito', Helvetica;
+  --font-tertiary: 'Antipasto Pro', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Nunito', Helvetica, sans-serif;
+}
+
+.tab {
+  padding: .5rem 2rem;
+  border: 1.5px solid transparent;
+  border-radius: 0.5rem;
+  transition: all .1s ease-in;
+}
+
+.tab:hover {
+  border-color: var(--accent-green-light);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.input {
+  display: flex;
+  padding: 1rem 1.5rem;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+
+.input input, textarea{
+  background: transparent;
+  width: 100%;
+}
+
+.input input:focus, textarea:focus {
+  outline: none;
+}
+
+.input-green {
+  background-color: var(--accent-green-lighter);
+}
+
+.input-green input::placeholder {
+  color: var(--accent-green-dark);
+  opacity: 50%;
+}
+
+.input-purple {
+  background-color: var(--accent-purple-lighter);
+}
+
+.input-purple input::placeholder{
+  color: var(--accent-purple-dark);
+  opacity: 50%;
+}
+
+.input:has(input:disabled), .input:has(textarea:disabled) {
+  background-color: #a8abc4;
+  color: var(--accent-purple-dark);
+  opacity: 50%;
+}
+
+.button-green {
+  background-color: var(--accent-green);
+  color: white;
+  padding: .5rem 0;
+  border-radius: 8px;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #5E7FD5 18.69%, #369A77 101.53%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-bg {
+  background: linear-gradient(101deg, #D6F2E8 29.85%, #D9E4FF 92.11%);
+}
+
+.drop-sh {
+  box-shadow: 0px 1.678px 8.389px 1.678px rgba(39, 90, 72, 0.24);
+}
+
+.scroll-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  ::-webkit-scrollbar {
+    display: none; 
+  }
+}
