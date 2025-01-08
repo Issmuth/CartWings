@@ -43,10 +43,8 @@ const OrderForm = () => {
     };
 
     return (
-        <div className="glass border-2 border-white rounded-xl py-12 flex flex-col gap-8 md:w-full md:max-w-[800px]">
-            <h1 className="font-primary text-5xl text-center text-accentGreenDark font-semibold px-3">Make Your Order</h1>
+        <>
             <div className="flex flex-col px-3 gap-6 md:px-8">
-
                 <div className="flex flex-col gap-8 w-full">
                     <label className="text-xl font-semibold">Product details:</label>
                     <div className="input input-green w-full">
@@ -187,7 +185,7 @@ const OrderForm = () => {
                     <button className="py-3 bg-accentGreen w-full rounded-lg">Complete Order</button>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

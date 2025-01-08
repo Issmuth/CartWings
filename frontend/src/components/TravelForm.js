@@ -43,10 +43,8 @@ const TravelForm = () => {
     };
 
     return (
-        <div className="glass border-2 border-white rounded-xl py-12 flex flex-col gap-8 md:w-full md:max-w-[800px]">
-            <h1 className="font-primary text-5xl text-center text-accentPurpleDark font-semibold px-3">Post Your Trip</h1>
+        <>
             <div className="flex flex-col px-3 gap-6 md:px-8">
-
                 <div className="flex flex-col gap-8 w-full">
                     <label className="text-xl font-semibold">Trip details:</label>
 
@@ -116,10 +114,10 @@ const TravelForm = () => {
                 </div>
 
                 <div className="flex w-full gap-2 text-white">
-                    <button className="py-3 bg-accentPurple w-full rounded-lg">Post Trip</button>
+                    <button className="py-3 bg-accentPurple w-full rounded-lg">Create Trip</button>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 
