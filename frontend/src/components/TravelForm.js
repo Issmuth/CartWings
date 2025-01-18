@@ -44,7 +44,7 @@ const TravelForm = () => {
 
     return (
         <>
-            <div className="flex flex-col px-3 gap-6 md:px-8">
+            <div className="w-full flex flex-col px-3 gap-6 md:px-8">
                 <div className="flex flex-col gap-8 w-full">
                     <label className="text-xl font-semibold">Trip details:</label>
 
@@ -62,11 +62,11 @@ const TravelForm = () => {
 
                     <div className=" text-center">
                         <h1 className="font-accentPurpleDark text-lg">Trip type</h1>
-                        <div className="flex whitespace-nowrap overflow-auto scroll-hide gap-2 py-2">
+                        <div className="flex whitespace-nowrap gap-2 py-2">
                             {["One Way", 'Round Trip'].map((retailer, index) => (
                                 <button
                                     key={index}
-                                    className={`py-3 min-w-[160px] flex justify-center font-bold flex-shrink-0 flex-grow items-center rounded-lg whitespace-nowrap overflow-x-auto bg-accentPurpleLighter border-2 ${selectedButton === index ? 'border-accentPurple text-accentPurple bg-transparent' : 'text-accentPurpleDark border-transparent'}`}
+                                    className={`py-3 flex justify-center font-bold flex-grow items-center rounded-lg  bg-accentPurpleLighter border-2 ${selectedButton === index ? 'border-accentPurple text-accentPurple bg-transparent' : 'text-accentPurpleDark border-transparent'}`}
                                     onClick={() => handleButtonClick(index)}
                                 >
                                     {retailer}
