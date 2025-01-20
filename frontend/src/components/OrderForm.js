@@ -58,10 +58,10 @@ const OrderForm = () => {
                             {[{ icon: '/images/amazon.png' }, { icon: '/images/ebay.png' }, { icon: '/images/walmart.png' }].map((retailer, index) => (
                                 <button
                                     key={index}
-                                    className={`py- min-w-[160px] flex justify-center flex-grow items-center flex-shrink-0 rounded-lg whitespace-nowrap overflow-x-auto bg-accentGreenLighter border-2 ${selectedButton === index ? 'border-accentGreen text-accentGreen bg-transparent' : 'text-accentGreenDark border-transparent'}`}
+                                    className={`py-3 min-w-[160px] flex justify-center flex-grow items-center flex-shrink-0 rounded-lg whitespace-nowrap overflow-x-auto bg-accentGreenLighter border-2 ${selectedButton === index ? 'border-accentGreen text-accentGreen bg-transparent' : 'text-accentGreenDark border-transparent'}`}
                                     onClick={() => handleButtonClick(index)}
                                 >
-                                    <img src={retailer.icon} />
+                                    <img className='max-h-7 w-auto' src={retailer.icon} />
                                 </button>
                             ))}
 
@@ -126,14 +126,14 @@ const OrderForm = () => {
                     </div>
 
                     <div className="flex flex-col md:flex-row gap-2 h-full">
-                        <div className="flex flex-col gap-2 flex-grow">
+                        <div className="flex flex-col gap-2 flex-grow h-fit">
                             <h1>Delivered before:</h1>
                             <div className="input input-green h-full">
                                 <input className='date-input' type="date" />
                             </div>
                         </div>
 
-                        <div className="flex flex-col gap-2 flex-grow">
+                        <div className="flex flex-col gap-2 flex-grow h-fit">
                             <h1>Delivered after:</h1>
                             <div className="input input-green h-full">
                                 <input className='date-input' type="date" />

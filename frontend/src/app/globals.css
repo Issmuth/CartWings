@@ -14,7 +14,7 @@
   --accent-green-dark: #1D362E;
 
   --accent-purple: #5E7FD5;
-  --accent-purple-light: #92A1E5;
+  --accent-purple-light: #8895cf;
   --accent-purple-lighter: #D9E4FF;
   --accent-purple-extralight: #e9effc;
   --accent-purple-bg: #E6E4ED;
@@ -48,6 +48,18 @@ body {
 .glass {
   background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(20px);
+}
+
+.box-shadow-green {
+  box-shadow: 0px 4px 20px 4px rgba(39, 90, 72, 0.239);
+}
+
+.box-shadow-purple {
+  box-shadow: 0px 4px 20px 4px rgba(55, 61, 92, 0.263);
+}
+
+.glass.green {
+  background: rgb(170, 210, 196, 0.3);
 }
 
 .input {
