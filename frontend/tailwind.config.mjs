@@ -81,7 +81,11 @@ export default {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+		boxShadow: {
+			green: 'var(--shadow-green)',
+			purple: 'var(--shadow-purple)',
+		},
   	}
   },
   plugins: [require("tailwindcss-animate")],

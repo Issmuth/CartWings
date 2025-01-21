@@ -23,6 +23,9 @@
   --font-primary: 'Outfit', sans-serif;
   --font-secondary: 'Nunito', Helvetica;
   --font-tertiary: 'Antipasto Pro', sans-serif;
+  
+  --shadow-green: 0px 4px 20px 4px rgba(15, 58, 44, 0.2);
+  --shadow-purple:  0px 4px 20px 2px rgba(84, 94, 144, 0.2);
 }
 
 * {
@@ -50,6 +53,11 @@ body {
   backdrop-filter: blur(20px);
 }
 
+.glass.green {
+  background: rgb(170, 210, 196, 0.3);
+  backdrop-filter: blur(20px);
+}
+
 .box-shadow-green {
   box-shadow: 0px 4px 20px 4px rgba(39, 90, 72, 0.239);
 }
@@ -58,9 +66,6 @@ body {
   box-shadow: 0px 4px 20px 4px rgba(55, 61, 92, 0.263);
 }
 
-.glass.green {
-  background: rgb(170, 210, 196, 0.3);
-}
 
 .input {
   display: flex;
@@ -179,6 +184,24 @@ input[type="radio"] {
 
 .radio-purple input:checked + span::after {
   background-color: var(--accent-purple);
+}
+
+@keyframes glow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.glow-animate {
+  background-size: 200% 200%;
+  animation: glow 3s linear infinite;
+  filter: blur(12px);
 }
 
 @layer base {

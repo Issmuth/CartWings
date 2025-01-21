@@ -1,8 +1,8 @@
 'use client';
 import SearchBar from "@/components/SearchBar";
-import Image from "next/image";
 import { useState } from "react";
 import { useRef } from "react";
+import Link from "next/link";
 
 export default function Home() {
   const [isTravel, setisTravel] = useState(false);
@@ -12,7 +12,7 @@ export default function Home() {
   const tripAccordionToggle = () => {
     setTripAccordion(true);
   }
-  
+
   const shopperAccordionToggle = () => {
     setTripAccordion(false);
   }
@@ -43,7 +43,7 @@ export default function Home() {
 
 
   return (
-    <div>
+    <>
       {/* ########## Hero Section ########## */}
       <section className="flex flex-col gap-10 gradient-bg px-5 py-16 md:px-24 text-center">
         <h1 className="gradient-text font-tertiary text-center text-5xl px-6">Explore the World, Shop the Globe</h1>
@@ -81,21 +81,21 @@ export default function Home() {
       </div>
 
       <section className={`flex flex-col items-center gap-5 py-6 px-5 ${isTripAccordion ? 'bg-accentPurpleLight' : 'bg-accentGreenLight'} md:px-20 md:pb-20 transition-colors duration-200`}>
-          <div className={`text-xl ${isTripAccordion ? 'border-accentPurple' : 'border-accentGreen'} flex gap-6 justify-center px-2 py-3 md:w-[80%]`}>
-            <button
-              className={`py-3 flex w-full max-w-[180px] justify-center font-bold items-center flex-grow rounded-lg bg-transparent border-2 md:flex-initial px-6   ${isTripAccordion ? 'text-accentPurpleDark border-transparent hover:border-accentPurpleDark' : 'border-white text-white'} transition-all duration-200 ease-in-out`}
-              onClick={shopperAccordionToggle}
-            >
-              Shopper
-            </button>
-            <button
-              className={`py-3 flex w-full max-w-[180px] justify-center font-bold  items-center rounded-lg flex-grow bg-transparent border-2 md:flex-initial px-6 ${isTripAccordion ? 'border-white text-white' : 'border-transparent text-accentGreenDark hover:border-accentGreenDark'} transition-all duration-200 ease-in-out`}
-              onClick={tripAccordionToggle}
-            >
-              Traveler
-            </button>
-          </div>
-        <div className={`glass ${isTripAccordion ? 'box-shadow-purple' : 'box-shadow-green'} w-full flexborder-2 border-white rounded-3xl`}>
+        <div className={`text-xl ${isTripAccordion ? 'border-accentPurple' : 'border-accentGreen'} flex gap-6 justify-center px-2 py-3 md:w-[80%]`}>
+          <button
+            className={`py-3 flex w-full max-w-[180px] justify-center font-bold items-center flex-grow rounded-lg bg-transparent border-2 md:flex-initial px-6   ${isTripAccordion ? 'text-accentPurpleDark border-transparent hover:border-accentPurpleDark' : 'border-white text-white'} transition-all duration-200 ease-in-out`}
+            onClick={shopperAccordionToggle}
+          >
+            Shopper
+          </button>
+          <button
+            className={`py-3 flex w-full max-w-[180px] justify-center font-bold  items-center rounded-lg flex-grow bg-transparent border-2 md:flex-initial px-6 ${isTripAccordion ? 'border-white text-white' : 'border-transparent text-accentGreenDark hover:border-accentGreenDark'} transition-all duration-200 ease-in-out`}
+            onClick={tripAccordionToggle}
+          >
+            Traveler
+          </button>
+        </div>
+        <div className={`glass ${isTripAccordion ? 'box-shadow-purple' : 'box-shadow-green'} w-full flexborder-2 border-2 border-white rounded-3xl`}>
           <div className='overflow-hidden relative'>
             <div className={`max-w-[45rem] lg:max-w-[55rem] m-auto p-6 ${isTripAccordion ? '-translate-x-full absolute' : 'translate-x-0'}  transition-transform ease-in-out duration-500`}>
               <div className="flex flex-col gap-4 md:flex-row md:h-[25rem]" id="accordion" ref={accordionRef} onClick={accordionClick}>
@@ -218,7 +218,7 @@ export default function Home() {
                     role="region"
                     aria-hidden="false">
                     <p className='ml-[4rem] font-secondary translate-y-8 opacity-0 group-has-[[aria-expanded="true"]]:translate-y-0 group-has-[[aria-expanded="true"]]:opacity-100 group-has-[[aria-expanded="true"]]:transition-all group-has-[[aria-expanded="true"]]:delay-500 group-has-[[aria-expanded="true"]]:duration-500'>
-                      Discover an order on your route, or even better, 
+                      Discover an order on your route, or even better,
                       list your trip on our platform so shoppers can easily connect with you.
                     </p>
                     <img className='absolute brightness-[30%] inset-0 object-cover w-full h-full -z-10 group-has-[[aria-expanded="true"]]:brightness-50 transition-[filter] mix-blend-luminosity' src="/images/tokyo.png" />
@@ -242,8 +242,8 @@ export default function Home() {
                     role="region"
                     aria-hidden="true">
                     <p className='ml-[4rem] font-secondary translate-y-8 opacity-0 group-has-[[aria-expanded="true"]]:translate-y-0 group-has-[[aria-expanded="true"]]:opacity-100 group-has-[[aria-expanded="true"]]:transition-all group-has-[[aria-expanded="true"]]:delay-500 group-has-[[aria-expanded="true"]]:duration-500'>
-                    Review the initial offer and make your own. Once you establish a good rapport with the shopper,
-                     they will secure the deal by accepting your proposal.
+                      Review the initial offer and make your own. Once you establish a good rapport with the shopper,
+                      they will secure the deal by accepting your proposal.
                     </p>
                     <img className='absolute brightness-[30%] inset-0 object-cover w-full h-full -z-10 group-has-[[aria-expanded="true"]]:brightness-50 transition-[filter] mix-blend-luminosity' src="/images/tokyo.png" />
                   </div>
@@ -266,8 +266,8 @@ export default function Home() {
                     role="region"
                     aria-hidden="hidden">
                     <p className='ml-[4rem] font-secondary translate-y-8 opacity-0 group-has-[[aria-expanded="true"]]:translate-y-0 group-has-[[aria-expanded="true"]]:opacity-100 group-has-[[aria-expanded="true"]]:transition-all group-has-[[aria-expanded="true"]]:delay-500 group-has-[[aria-expanded="true"]]:duration-500'>
-                    Once the order is made purchase the item ordered, before your trip. 
-                    The purchase money will be reimbursed along with the reward money you agreed with the shopper once the delivery is complete.
+                      Once the order is made purchase the item ordered, before your trip.
+                      The purchase money will be reimbursed along with the reward money you agreed with the shopper once the delivery is complete.
                     </p>
                     <img className='absolute brightness-[30%] inset-0 object-cover w-full h-full -z-10 group-has-[[aria-expanded="true"]]:brightness-50 transition-[filter] mix-blend-luminosity' src="/images/tokyo.png" />
                   </div>
@@ -290,8 +290,8 @@ export default function Home() {
                     role="region"
                     aria-hidden="true">
                     <p className='ml-[4rem] font-secondary translate-y-8 opacity-0 group-has-[[aria-expanded="true"]]:translate-y-0 group-has-[[aria-expanded="true"]]:opacity-100 group-has-[[aria-expanded="true"]]:transition-all group-has-[[aria-expanded="true"]]:delay-500 group-has-[[aria-expanded="true"]]:duration-500'>
-                      Arrange to meet the shopper in a safe, public location. Once they receive their item, have them scan the QR code to confirm the delivery. 
-                      After that, you will receive your reward along with the payment for the purchase. 
+                      Arrange to meet the shopper in a safe, public location. Once they receive their item, have them scan the QR code to confirm the delivery.
+                      After that, you will receive your reward along with the payment for the purchase.
                     </p>
                     <img className='absolute brightness-[30%] inset-0 object-cover w-full h-full -z-10 group-has-[[aria-expanded="true"]]:brightness-50 transition-[filter] mix-blend-luminosity' src="/images/tokyo.png" />
                   </div>
@@ -311,28 +311,113 @@ export default function Home() {
           <p className="text-center text-xl">Explore the latest orders to inspire your next adventure</p>
         </div>
 
-        <div className="grid grid-cols-4 gap-6">
-          <div className="flex flex-col p-0 rounded-xl overflow-hidden bg-accentPurpleLighter border border-accentPurple">
-            <img src="/images/earpod.jpg" className="w-full max-h-64 object-cover"/>
-            <div className="flex flex-col gap-3 p-3">
-              <div>
-                <h4 className="text-xl font-bold font-primary text-accentPurpleDark">Airpods Pro</h4>
-                <p>Paris to Nairobi</p>
-              </div>
-              <div className="flex justify-between">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-4">
+          <div className="flex flex-col p-0 rounded-xl overflow-hidden bg-accentPurpleLighter border border-accentPurple hover:border-transparent hover:shadow-purple transition-all duration-200 ease-in">
+            <a href="#">
+              <img src="/images/earpod.jpg" className="w-full max-h-64 object-cover" />
+              <div className="flex flex-col gap-3 p-3 text-foreground">
                 <div>
-                  <h5>$199.99</h5>
-                  <p>Item Price</p>
+                  <h4 className="text-2xl font-bold font-primary text-accentPurpleDark">Airpods Pro</h4>
+                  <p className="text-lg font-semibold">Paris to Nairobi</p>
                 </div>
-                <div>
-                  <h5>$45</h5>
-                  <p>Starting Offer</p>
+                <div className="flex justify-between">
+                  <div>
+                    <h5 className="text-xl font-bold font-primary text-accentPurple">$199.99</h5>
+                    <p>Item Price</p>
+                  </div>
+                  <div>
+                    <h5 className="text-xl font-bold font-primary text-accentPurple">$45</h5>
+                    <p>Starting Offer</p>
+                  </div>
                 </div>
               </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/*######### Order CTA #########*/}
+      <div className="w-full px-5 py-10 bg-accentPurpleLighter my-16 flex flex-col gap-2 items-center justify-center text-center">
+        <h2 className="text-3xl font-bold md:text-4xl text-accentPurpleDark">Ready to snag a deal from overseas?</h2>
+        <p className="text-foreground text-lg">Order now and let our adventurers deliver treasures to your door!</p>
+        <Link href="/order">
+          <button className="bg-accentPurple rounded-lg text-white font-semibold px-6 py-2 mt-3">Add your Order</button>
+        </Link>
+      </div>
+
+      {/* Popular Destinations Section */}
+      <section className="px-9">
+        <div className="flex flex-col gap-2 justify-center items center py-10">
+          <h1 className="text-center text-5xl font-primary font-semibold px-4 leading-[3rem]">Popular Destinations</h1>
+          <p className="text-center text-xl">Discover the hottest travel spots to spark your next getaway.</p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-4">
+          <div className="flex flex-col p-0 rounded-xl overflow-hidden bg-accentGreenLighter border border-accentGreen hover:border-transparent hover:shadow-green transition-all duration-200 ease-in">
+            <a href="#">
+              <img src="/images/tokyo.png" className="w-full max-h-64 object-cover" />
+              <div className="flex flex-col gap-3 p-3 text-foreground">
+                <div>
+                  <h4 className="text-2xl font-bold font-primary text-accentGreenDark">Airpods Pro</h4>
+                  <p className="text-lg font-semibold">Paris to Nairobi</p>
+                </div>
+                <div className="flex justify-between">
+                  <div>
+                    <h5 className="text-xl font-bold font-primary text-accentGreen">$199.99</h5>
+                    <p>Item Price</p>
+                  </div>
+                  <div>
+                    <h5 className="text-xl font-bold font-primary text-accentGreen">$45</h5>
+                    <p>Starting Offer</p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/*######## Travel CTA Section #########*/}
+      <div className="w-full px-5 py-10 bg-accentGreenLighter my-14 flex flex-col gap-2 items-center justify-center text-center">
+        <h2 className="text-3xl font-bold md:text-4xl text-accentGreenDark">Got a Trip brewing in your mind?</h2>
+        <p className="text-foreground text-lg">Share your upcoming trip and earn rewards while you explore!</p>
+        <Link href="/travel">
+          <button className="bg-accentGreen rounded-lg text-white font-semibold px-6 py-2 mt-3">Add your Trip</button>
+        </Link>
+      </div>
+
+      {/* Top Adeventurers Section */}
+
+      <div className="flex flex-col gap-2 justify-center items center py-10 px-5">
+        <h1 className="text-center text-5xl font-primary font-semibold px-4 leading-[3rem]">Our Top Adventurers</h1>
+        <p className="text-center text-xl">Take a look at our explorers who have successfully completed numerous orders!</p>
+      </div>
+      <section className="px-6 md:px-20 gradient-bg py-10">
+        <div className="glass border-2 border-white p-8 rounded-xl grid grid-cols-1 gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className=" p-2 hover:p-0 relative rounded-t-full rounded-b-[1000px] transition-[padding] duration-300">
+            <div className="text-center shadow-inner flex flex-col rounded-t-full rounded-b-[1000px] overflow-hidden bg-white bg-opacity-85  transition-all duration-200 ease-in">
+              <a href="#">
+                <img src="/images/profile.jpg" className="w-full aspect-square object-cover rounded-l-full" />
+                <div className="flex flex-col gap-3 p-3 text-foreground">
+                  <div>
+                    <h4 className="text-2xl gradient-text font-bold font-primary">Hassan Khan</h4>
+                    <p className="font-semibold opacity-60">$463.65 earned</p>
+                  </div>
+                  <div>
+                    <h5 className="text-2xl gradient-text font-bold font-primary">12</h5>
+                    <p className="font-semibold opacity-60">Completed Orders</p>
+                  </div>
+                </div>
+              </a>
+              <div class="absolute inset-0 rounded-t-full rounded-xl -z-10  bg-gradient-to-r from-accentPurpleLight to-accentGreenLight glow-animate opacity-75"></div>
             </div>
           </div>
-        </div>    
+        </div>
       </section>
-    </div>
+
+
+      {/* Final CTA Section */}
+      
+    </>
   );
 }
