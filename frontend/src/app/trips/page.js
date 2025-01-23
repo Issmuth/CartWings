@@ -23,7 +23,7 @@ const Trips = () => {
 
 
     return (
-        <section className="bg-accentPurpleBg px-5 py-5 flex gap-5">
+        <section className="mt-32 md:mt-20 bg-accentPurpleBg px-5 py-5 flex gap-5">
             <div className="hidden h-fit md:flex flex-col gap-5 glass border-2 border-white rounded-2xl w-full min-w-[300px] py-8 px-4">
                 <div className={`w-full h-fit bg-accentPurpleLighter rounded-2xl p-4 flex flex-col gap-6`}>
                     <h2 className="text-accentPurple text-lg font-semibold">Sort by</h2>

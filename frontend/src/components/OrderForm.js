@@ -82,11 +82,11 @@ const OrderForm = () => {
                     </div>
 
                     {/* Image upload */}
-                    <div className="flex w-full gap-3 flex-wrap h-fit">
+                    <div className="w-full gap-3 grid grid-cols-2 md:grid-cols-4 h-fit">
                         {imageInputs.map((input, index) => (
                             <div key={index} id="upload-container" className="relative flex-1 min-w-[150px] h-auto">
-                                <label htmlFor={`image-${index}`} className="w-full aspect-square">
-                                    <div className={`relative bg-transparent border-dashed  w-full aspect-square flex flex-col items-center justify-center text-center p-5 rounded-2xl overflow-hidden border-2  ${input.uploaded ? 'border-transparent bg-accentGreenExtralight' : 'border-accentGreen'} ease-in duration-100 hover:bg-accentGreenExtralight md:max-w-[200px]`}>
+                                <label htmlFor={`image-${index}`} className="w-full aspect-square bg-accentGreenLighter">
+                                    <div className={`relative border-dashed  w-full aspect-square flex flex-col items-center justify-center text-center p-5 rounded-2xl overflow-hidden border-2  ${input.uploaded ? 'border-transparent bg-accentGreenLighter' : 'border-accentGreen hover:bg-accentGreenExtralight'} ease-in duration-100  md:max-w-[200px]`}>
                                         {input.uploaded ? (
                                             <img src={input.src} alt="Uploaded" className="w-full h-full object-contain absolute" />
                                         ) : (
@@ -118,7 +118,7 @@ const OrderForm = () => {
                             <div className='input input-green w-full'>
                                 <input type="text" placeholder="from" />
                             </div>
-                            <button className="w-6 h-6 md:w-12 md:h-12"><Image src='/images/swap.png' width={24} height={24} alt="swap icon" className="" /></button>
+                            <button className="w-6 h-6 md:w-12 md:h-12"><Image src='/images/swap.png' width={24} height={24} alt="swap icon" /></button>
                             <div className='input input-green w-full'>
                                 <input type="text" placeholder="to" />
                             </div>

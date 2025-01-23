@@ -7,9 +7,16 @@ const Navbar = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isSigningIn, setIsSigningIn] = useState(false);
     const [isSignup, setIsSignup] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
     const handleLogin = () => {
-        setIsLoggedIn(!isLoggedIn);
+        setIsLoggedIn(true);
+    }
+
+    const handleLogout = () => {
+        setIsLoggedIn(false);
+        window.location.href = '/';
     }
 
     const toggleSidebar = () => {
@@ -30,8 +37,16 @@ const Navbar = () => {
         toggleSignin();
     }
 
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    }
+
+    const toggleConfirmPasswordVisibility = () => {
+        setShowConfirmPassword(!showConfirmPassword);
+    }
+
     return (
-        <nav className="flex flex-col py-5 md:py-0">
+        <nav className="fixed inset-0 z-10 h-fit bg-white flex flex-col py-5 md:py-0">
             <div className="flex justify-between items-center w-full border-b-[1px] px-5 pb-4 md:border-none md:px-24 md:py-3">
                 <a href="/">
                     <picture>
@@ -57,9 +72,8 @@ const Navbar = () => {
             <div className={`fixed z-20 top-2 right-0 h-[95%] w-[80%] max-w-[300px] glass shadow-lg border-t-[1.5px] border-b-[1.5px] border-l-[1.5px] border-accentGreenLight rounded-l-2xl transform  ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform ease-in-out duration-300`}>
                 <button className="absolute top-4 right-4" onClick={toggleSidebar}><Image width={25} height={25} src='/images/Close.png'/></button>
                 <ul className="mt-16">
-                    <li className="p-4 border-b"><a href="#">Profile</a></li>
-                    <li className="p-4 border-b"><a href="#">Settings</a></li>
-                    <li className="p-4 border-b"><a href="#">Logout</a></li>
+                    <li className="p-4 border-b"><a href="/profile">Profile</a></li>
+                    <li className="p-4 border-b"><button onClick={handleLogout}>Logout</button></li>
                 </ul>
             </div>
 
@@ -72,9 +86,9 @@ const Navbar = () => {
                             <div className="input input-green">
                                 <input type="email" placeholder="Email"/>
                             </div>
-                            <div className="input input-green">
-                                <input type="password" placeholder="Password"/>
-                                <Image src='/images/Eye.png' width={25} height={25} className="h-5 w-auto"/>
+                            <div className="input input-green relative">
+                                <input type={showPassword ? "text" : "password"} placeholder="Password"/>
+                                <Image src={showPassword ? '/images/Eye.png' : '/images/Invisible.png'} width={25} height={25} className="h-5 w-auto cursor-pointer absolute right-3 top-1/2 transform -translate-y-1/2" onClick={togglePasswordVisibility}/>
                             </div>
                             <div className="flex text-sm justify-between">
                                 <a>forgot password?</a>
@@ -91,26 +105,26 @@ const Navbar = () => {
                             <div className="flex flex-col items-center w-full gap-2">
                                 <h2>Continue with</h2>
                                 <div className="flex gap-5">
-                                    <a><Image src='/images/Google.png' width={40} height={40}/></a>
-                                    <a><Image src='/images/Facebook.png' width={43} height={43}/></a>
+                                    <a><Image src='/images/Google.png' width={30} height={30}/></a>
+                                    <a><Image src='/images/Facebook.png' width={33} height={33}/></a>
                                 </div>
                             </div>
                         </form>
                     </div>
 
                     <div className={`absolute inset-0 transform ${isSignup ? 'translate-x-0' : 'translate-x-full'} transition-transform ease-in-out duration-500`}>
-                        <form className="flex flex-col gap-5 px-6 py-14 justify-center" onSubmit={handleSubmit}>
+                        <form className="flex flex-col gap-5 px-6 py-9 justify-center" onSubmit={handleSubmit}>
                             <h1 className="font-primary text-4xl">Sign up</h1>
                             <div className="input input-green">
                                 <input type="email" placeholder="Email"/>
                             </div>
-                            <div className="input input-green">
-                                <input type="password" placeholder="Password"/>
-                                <Image src='/images/Eye.png' width={25} height={25} className="h-5 w-auto"/>
+                            <div className="input input-green relative">
+                                <input type={showPassword ? "text" : "password"} placeholder="Password"/>
+                                <Image src={showPassword ? '/images/Eye.png' : '/images/Invisible.png'} width={25} height={25} className="h-5 w-auto cursor-pointer absolute right-3 top-1/2 transform -translate-y-1/2" onClick={togglePasswordVisibility}/>
                             </div>
-                            <div className="input input-green">
-                                <input type="password" placeholder="Confirm Password"/>
-                                <Image src='/images/Eye.png' width={25} height={25} className="h-5 w-auto"/>
+                            <div className="input input-green relative">
+                                <input type={showConfirmPassword ? "text" : "password"} placeholder="Confirm Password"/>
+                                <Image src={showConfirmPassword ? '/images/Eye.png' : '/images/Invisible.png'} width={25} height={25} className="h-5 w-auto cursor-pointer absolute right-3 top-1/2 transform -translate-y-1/2" onClick={toggleConfirmPasswordVisibility}/>
                             </div>
                             <button className="button-green" type="submit">Sign up</button>
                             <div className="flex justify-center text-sm gap-1">
@@ -120,8 +134,8 @@ const Navbar = () => {
                             <div className="flex flex-col items-center w-full gap-2">
                                 <h2>Continue with</h2>
                                 <div className="flex gap-5">
-                                    <a><Image src='/images/Google.png' width={40} height={40}/></a>
-                                    <a><Image src='/images/Facebook.png' width={43} height={43}/></a>
+                                    <a><Image src='/images/Google.png' width={30} height={30}/></a>
+                                    <a><Image src='/images/Facebook.png' width={33} height={33}/></a>
                                 </div>
                             </div>
                         </form>

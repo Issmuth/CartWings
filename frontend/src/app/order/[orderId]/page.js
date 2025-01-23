@@ -17,7 +17,7 @@ const OrderDetails = () => {
         setIsOffer(!isOffer);
     }
     return (
-        <section className='bg-accentGreenBg flex flex-col px-5 py-8 gap-5 md:flex-row'>
+        <section className='mt-32 md:mt-20 bg-accentGreenBg flex flex-col px-5 py-8 gap-5 md:flex-row'>
             <div className="glass w-full border-2 border-white rounded-xl px-3 py-5 flex flex-col gap-3 flex-1 basis-[65%] md:px-5">
                 <div className="flex justify-between items-end">
                     <div>
@@ -82,7 +82,7 @@ const OrderDetails = () => {
             {isOffer && (
             <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 py-12 px-5 overflow-scroll scroll-hide flex justify-center">
                 <div className="glass border-2 border-white rounded-xl py-12 px-2 flex flex-col gap-8 h-fit w-full md:max-w-[800px] items-center">
-                    <button className="absolute top-4 right-4 z-10" onClick={toggleOffer}><Image width={25} height={25} src='/images/Close.png'/></button>
+                    <button className="absolute top-4 right-4 z-40" onClick={toggleOffer}><Image width={25} height={25} src='/images/Close.png'/></button>
                     <div className="w-full border-b-[1.5px] border-accentPurple flex gap-6 justify-center px-2 py-3">
                         <button
                             className={`py-3 flex w-full max-w-[160px] justify-center font-bold items-center flex-grow rounded-lg bg-transparent border-2 md:flex-initial ${isCreateTrip ? 'text-accentPurpleDark border-transparent' : 'border-accentPurple text-accentPurple'}`} 

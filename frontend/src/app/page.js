@@ -1,8 +1,11 @@
 'use client';
 import SearchBar from "@/components/SearchBar";
+import OrderCardNarrow from "@/components/OrderCardNarrow";
 import { useState } from "react";
 import { useRef } from "react";
 import Link from "next/link";
+import DestinationCard from "@/components/DestinationCard";
+import TopTravelerCard from "@/components/TopTravelerCard";
 
 export default function Home() {
   const [isTravel, setisTravel] = useState(false);
@@ -45,7 +48,7 @@ export default function Home() {
   return (
     <>
       {/* ########## Hero Section ########## */}
-      <section className="flex flex-col gap-10 gradient-bg px-5 py-16 md:px-24 text-center">
+      <section className="mt-32 md:mt-20 flex flex-col gap-10 gradient-bg px-5 py-16 md:px-24 text-center">
         <h1 className="gradient-text font-tertiary text-center text-5xl px-6">Explore the World, Shop the Globe</h1>
         <div className="flex flex-col gap-8 w-full rounded-2xl overflow-hidden border-2 border-white bg-white glass bg-opacity-50 box-shadow md:flex-row">
           {/* clip container */}
@@ -312,27 +315,43 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-4">
-          <div className="flex flex-col p-0 rounded-xl overflow-hidden bg-accentPurpleLighter border border-accentPurple hover:border-transparent hover:shadow-purple transition-all duration-200 ease-in">
-            <a href="#">
-              <img src="/images/earpod.jpg" className="w-full max-h-64 object-cover" />
-              <div className="flex flex-col gap-3 p-3 text-foreground">
-                <div>
-                  <h4 className="text-2xl font-bold font-primary text-accentPurpleDark">Airpods Pro</h4>
-                  <p className="text-lg font-semibold">Paris to Nairobi</p>
-                </div>
-                <div className="flex justify-between">
-                  <div>
-                    <h5 className="text-xl font-bold font-primary text-accentPurple">$199.99</h5>
-                    <p>Item Price</p>
-                  </div>
-                  <div>
-                    <h5 className="text-xl font-bold font-primary text-accentPurple">$45</h5>
-                    <p>Starting Offer</p>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
+
+          {/* Product Card */}
+          <OrderCardNarrow 
+            id={1} 
+            name={'Airpods Pro'}
+            img={'/images/earpod.jpg'}
+            from={'Paris'}
+            to={'Nairobi'}
+            price={'$211'}
+            offer={'$12'}/>
+
+          <OrderCardNarrow 
+            id={2} 
+            name={'Macbook Pro 13"'}
+            img={'/images/mac3.png'}
+            from={'New York'}
+            to={'Addis Ababa'}
+            price={'$999.87'}
+            offer={'$119.99'}/>
+
+          <OrderCardNarrow 
+            id={3} 
+            name={'Nuance Cream'}
+            img={'/images/NuanceCream.jpg'}
+            from={'Paris'}
+            to={'Cairo'}
+            price={'$59.87'}
+            offer={'$5.99'}/>
+
+          <OrderCardNarrow 
+            id={4} 
+            name={'Sony WH-1000XM4'}
+            img={'/images/Sony.jpg'}
+            from={'Tokyo'}
+            to={'Johannesburg'}
+            price={'$120.99'}
+            offer={'$12.99'}/>
         </div>
       </section>
 
@@ -353,27 +372,29 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-4">
-          <div className="flex flex-col p-0 rounded-xl overflow-hidden bg-accentGreenLighter border border-accentGreen hover:border-transparent hover:shadow-green transition-all duration-200 ease-in">
-            <a href="#">
-              <img src="/images/tokyo.png" className="w-full max-h-64 object-cover" />
-              <div className="flex flex-col gap-3 p-3 text-foreground">
-                <div>
-                  <h4 className="text-2xl font-bold font-primary text-accentGreenDark">Airpods Pro</h4>
-                  <p className="text-lg font-semibold">Paris to Nairobi</p>
-                </div>
-                <div className="flex justify-between">
-                  <div>
-                    <h5 className="text-xl font-bold font-primary text-accentGreen">$199.99</h5>
-                    <p>Item Price</p>
-                  </div>
-                  <div>
-                    <h5 className="text-xl font-bold font-primary text-accentGreen">$45</h5>
-                    <p>Starting Offer</p>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
+          <DestinationCard
+            city={"Tokyo"}
+            orders={212}
+            rewards={3567}
+            img={'/images/tokyo.png'}/>
+
+          <DestinationCard
+            city={"Los Angeles"}
+            orders={189}
+            rewards={2205}
+            img={'/images/LA.jpg'}/>
+
+          <DestinationCard
+            city={"New York"}
+            orders={79}
+            rewards={1205}
+            img={'/images/NY.jpg'}/>
+
+          <DestinationCard
+            city={"Paris"}
+            orders={39}
+            rewards={845}
+            img={'/images/Paris.jpg'}/>
         </div>
       </section>
 
@@ -393,25 +414,34 @@ export default function Home() {
         <p className="text-center text-xl">Take a look at our explorers who have successfully completed numerous orders!</p>
       </div>
       <section className="px-6 md:px-20 gradient-bg py-10">
-        <div className="glass border-2 border-white p-8 rounded-xl grid grid-cols-1 gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <div className=" p-2 hover:p-0 relative rounded-t-full rounded-b-[1000px] transition-[padding] duration-300">
-            <div className="text-center shadow-inner flex flex-col rounded-t-full rounded-b-[1000px] overflow-hidden bg-white bg-opacity-85  transition-all duration-200 ease-in">
-              <a href="#">
-                <img src="/images/profile.jpg" className="w-full aspect-square object-cover rounded-l-full" />
-                <div className="flex flex-col gap-3 p-3 text-foreground">
-                  <div>
-                    <h4 className="text-2xl gradient-text font-bold font-primary">Hassan Khan</h4>
-                    <p className="font-semibold opacity-60">$463.65 earned</p>
-                  </div>
-                  <div>
-                    <h5 className="text-2xl gradient-text font-bold font-primary">12</h5>
-                    <p className="font-semibold opacity-60">Completed Orders</p>
-                  </div>
-                </div>
-              </a>
-              <div class="absolute inset-0 rounded-t-full rounded-xl -z-10  bg-gradient-to-r from-accentPurpleLight to-accentGreenLight glow-animate opacity-75"></div>
-            </div>
-          </div>
+        <div className="glass border-2 border-white p-8 rounded-xl grid grid-cols-1 gap-4 md:gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <TopTravelerCard
+            id={1}
+            name={"Hassan Khan"}
+            img={"/images/profile.jpg"}
+            earned={463.65}
+            delivered={12}/>
+
+          <TopTravelerCard
+            id={2}
+            name={"Stephanie Smith"}
+            img={"/images/pp4.jpg"}
+            earned={323.32}
+            delivered={6}/>
+
+          <TopTravelerCard
+            id={3}
+            name={"Marcus Eddie"}
+            img={"/images/pp5.jpg"}
+            earned={214.99}
+            delivered={5}/>
+
+          <TopTravelerCard
+            id={4}
+            name={"Meredith Grey"}
+            img={"/images/pp2.jpg"}
+            earned={207.99}
+            delivered={3}/>
         </div>
       </section>
 

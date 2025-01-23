@@ -2,24 +2,24 @@ import Image from "next/image";
 
 const Footer = () => {
     return (
-        <footer className="px-16 py-10 content-center">
-            <div className="sm:hidden lg:hidden mx-auto my-6 w-fit text-center md:text-left lg:mb-0 flex flex-col items-center justify-center lg:items-start">
+        <footer className=" py-10 content-center">
+            <div className="sm:hidden px-5 lg:hidden mx-auto my-6 w-fit text-center md:text-left lg:mb-0 flex flex-col items-center justify-center lg:items-start">
                 <Image className="w-56" src="/images/logo.png" alt="CartWings Logo" width={150} height={50} />
                 <p className="text-2xl font-semibold mt-2 md">Earn on the go, shop the globe.</p>
             </div>
-            <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="container mx-auto px-20 py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 border-b">
                 <div className="text-center hidden md:text-left mb-4 md:mb-0 lg:flex flex-col items-center md:items-start">
                     <Image src="/images/logo.png" alt="CartWings Logo" width={150} height={50} />
                     <p className="font-semibold mt-2 md">Earn on the go, shop the globe.</p>
                 </div>
-                <div className="flex flex-col gap-4 items-center text-accentGreenLight">
+                <div className="flex flex-col gap-6 items-center text-accentGreenLight">
                     <h3 className="text-xl text-accentGreenDark font-primary font-semibold">Company</h3>
                     <a href="#" className=" font-semibold"><span className="px-6 py-2 w-fit h-fit rounded-lg border-[1.5px] border-transparent hover:border-accentGreenLight transition-colors duration-300">About Us</span></a>
                     <a href="#" className=" font-semibold"><span className="px-6 py-2 w-fit h-fit rounded-lg border-[1.5px] border-transparent hover:border-accentGreenLight transition-colors duration-300">Contact</span></a>
                     <a href="#" className=" font-semibold"><span className="px-6 py-2 w-fit h-fit rounded-lg border-[1.5px] border-transparent hover:border-accentGreenLight transition-colors duration-300">Careers</span></a>
                     <a href="#" className=" font-semibold"><span className="px-6 py-2 w-fit h-fit rounded-lg border-[1.5px] border-transparent hover:border-accentGreenLight transition-colors duration-300">Blog</span></a>
                 </div>
-                <div className="flex flex-col gap-4 items-center text-accentGreenLight">
+                <div className="flex flex-col gap-6 items-center text-accentGreenLight">
                     <h3 className="text-xl text-accentGreenDark font-primary font-semibold">Support</h3>
                     <a href="#" className=" font-semibold"><span className="px-6 py-2 w-fit h-fit rounded-lg border-[1.5px] border-transparent hover:border-accentGreenLight transition-colors duration-300">Help Center</span></a>
                     <a href="#" className=" font-semibold"><span className="px-6 py-2 w-fit h-fit rounded-lg border-[1.5px] border-transparent hover:border-accentGreenLight transition-colors duration-300">FAQ</span></a>
