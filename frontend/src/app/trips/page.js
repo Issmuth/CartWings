@@ -1,12 +1,21 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import SearchBar from "@/components/SearchBar";
 import TripCard from "@/components/TripCard";
+import Loader from "@/ui/Loader";
 
 const Trips = () => {
     const [isSortByOpen, setIsSortByOpen] = useState(false);
     const [isFilterOpen, setIsFilterOpen] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
+    
+        useEffect(() => {
+            const timer = setTimeout(() => {
+                setIsLoading(false);
+            }, 1000);
+            return () => clearTimeout(timer);
+        }, []);
 
     const handleSortByClick = () => {
         setIsSortByOpen(true);
@@ -21,10 +30,63 @@ const Trips = () => {
         setIsFilterOpen(false);
     };
 
+    const sampleTravelers = [
+        {
+            id: 1,
+            name: "Hassan Khan",
+            from: "Lahore",
+            to: "Karachi",
+            arrivesOn: "12th August 2021",
+            returnsOn: "15th August 2021",
+            minPrice: "$50",
+            maxPrice: "$100",
+            maxWeight: "5kg",
+            profileImg: "/images/profile.jpg"
+        },
+
+        {
+            id: 2,
+            name: "Ali Ahmed",
+            from: "Islamabad",
+            to: "Lahore",
+            arrivesOn: "14th August 2021",
+            returnsOn: "17th August 2021",
+            minPrice: "$70",
+            maxPrice: "$120",
+            maxWeight: "7kg",
+            profileImg: "https://picsum.photos/500?random=1"
+        },
+
+        {
+            id: 3,
+            name: "Sara Khan",
+            from: "Karachi",
+            to: "Islamabad",
+            arrivesOn: "16th August 2021",
+            returnsOn: "19th August 2021",
+            minPrice: "$80",
+            maxPrice: "$130",
+            maxWeight: "6kg",
+            profileImg: "https://picsum.photos/500?random=2"
+        },
+
+        {
+            id: 4,
+            name: "Marcus Edwards",
+            from: "New York",
+            to: "Los Angeles",
+            arrivesOn: "18th August 2021",
+            returnsOn: "21st August 2021",
+            minPrice: "$100",
+            maxPrice: "$150",
+            maxWeight: "8kg",
+            profileImg: "https://picsum.photos/500?random=3"
+        }
+    ]
 
     return (
         <section className="mt-32 md:mt-20 bg-accentPurpleBg px-5 py-5 flex gap-5">
-            <div className="hidden h-fit md:flex flex-col gap-5 glass border-2 border-white rounded-2xl w-full min-w-[300px] py-8 px-4">
+            <div className="hidden h-fit md:flex flex-col gap-5 glass border-2 border-white rounded-2xl w-min-[300px] md:max-w-[300px]  py-8 px-4">
                 <div className={`w-full h-fit bg-accentPurpleLighter rounded-2xl p-4 flex flex-col gap-6`}>
                     <h2 className="text-accentPurple text-lg font-semibold">Sort by</h2>
                     <div className="flex flex-col gap-4 font-semibold text-accentPurpleDark">
@@ -82,7 +144,7 @@ const Trips = () => {
                 </div>
             </div>
 
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-5 w-full">
                 <div className="w-full glass py-5 rounded-2xl border-white border-2 flex">
                     <SearchBar isTravel={true} isHorizontal={true} className='flex flex-row' />
                 </div>
@@ -93,11 +155,22 @@ const Trips = () => {
                     </div>
 
                     <div>
-                        <h1 className="mb-2">234 Results</h1>
-                        <div className="flex flex-col gap-4">
-                            <TripCard/>
-                            <TripCard/>
-                        </div>
+                    {isLoading ? (
+                            <div className="w-full flex justify-center items-center">
+                                <Loader />
+                            </div>
+                        ) : (
+                            <>
+                                <h1 className="mb-2">234 Results</h1>
+                                <div className="flex flex-col gap-4">
+                                    {sampleTravelers.map((traveler) => (
+                                        <TripCard key={traveler.id} {...traveler} />
+                                    ))}
+                                    
+                                </div>
+                            </>
+                        )
+                    }
                     </div>
 
                     <div className="flex w-full gap-2">

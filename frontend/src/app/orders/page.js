@@ -175,7 +175,7 @@ const Orders = () => {
 
     return (
         <section className="mt-32 md:mt-20 bg-accentGreenBg px-5 py-8 flex gap-5">
-            <div className="hidden h-fit md:flex flex-col gap-5 glass border-2 border-white rounded-lg  min-w-[300px] py-8 px-4">
+            <div className="hidden h-fit md:flex flex-col gap-5 glass border-2 border-white rounded-lg  w-min-[300px] md:max-w-[300px] py-8 px-4">
                 <div className={`w-full h-fit bg-accentGreenLighter rounded-lg p-4 flex flex-col gap-6`}>
                     <h2 className="text-accentGreen text-lg font-semibold">Sort by</h2>
                     <div className="flex flex-col gap-4 font-semibold text-accentGreenDark">
@@ -250,7 +250,7 @@ const Orders = () => {
                 </div>
             </div>
 
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-5 w-full">
                 <div className="w-full glass py-5 rounded-lg border-white border-2 flex">
                     <SearchBar className='flex flex-row' />
                 </div>
@@ -263,7 +263,9 @@ const Orders = () => {
 
                     <div>
                         {isLoading ? (
-                            <Loader />
+                            <div className="w-full flex justify-center items-center">
+                                <Loader />
+                            </div>
                         ) : (
                             <>
                                 <h1 className="mb-2">234 Results</h1>

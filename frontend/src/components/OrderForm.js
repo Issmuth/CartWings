@@ -1,12 +1,15 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import Loader from "@/ui/Loader";
 
 const OrderForm = () => {
     const [imageInputs, setImageInputs] = useState([{ uploaded: false, src: null }]);
     const [selectedButton, setSelectedButton] = useState(null);
     const [quantity, setQuantity] = useState(1);
     const [price, setPrice] = useState(0);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [showToast, setShowToast] = useState(false);
 
     const handleImageChange = (index, event) => {
         const file = event.target.files[0];
@@ -42,13 +45,25 @@ const OrderForm = () => {
         setPrice(isNaN(value) ? 0 : value);
     };
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        setIsSubmitting(true);
+        setTimeout(() => {
+            setIsSubmitting(false);
+            setShowToast(true);
+            setTimeout(() => {
+                setShowToast(false);
+            }, 3000);
+        }, 2000);
+    };
+
     return (
         <>
-            <div className="flex flex-col px-3 gap-6 md:px-8">
+            <form className="flex flex-col px-3 gap-6 md:px-8" onSubmit={handleSubmit}>
                 <div className="flex flex-col gap-8 w-full">
                     <label className="text-xl font-semibold">Product details:</label>
                     <div className="input input-green w-full">
-                        <input placeholder="Product link" />
+                        <input required placeholder="Product link" />
                     </div>
 
                     {/* Retailer Selection */}
@@ -71,13 +86,13 @@ const OrderForm = () => {
                     {/* Product Details */}
                     <div className="flex flex-col gap-4 md:flex-row">
                         <div className="input input-green w-full">
-                            <input placeholder="Product Name" />
+                            <input required placeholder="Product Name" />
                         </div>
                         <div className="input input-green w-full">
-                            <input placeholder="Price" onChange={handlePriceChange} />
+                            <input required placeholder="Price" onChange={handlePriceChange} />
                         </div>
                         <div className="input input-green w-full">
-                            <input placeholder="Weight" />
+                            <input required placeholder="Weight" />
                         </div>
                     </div>
 
@@ -97,7 +112,7 @@ const OrderForm = () => {
                                         )}
 
                                     </div>
-                                    <input id={`image-${index}`} type="file" className="hidden" onChange={(e) => handleImageChange(index, e)} />
+                                    <input required id={`image-${index}`} type="file" className="hidden" onChange={(e) => handleImageChange(index, e)} />
                                 </label>
                                 {input.uploaded && (
                                     <button
@@ -116,11 +131,11 @@ const OrderForm = () => {
                     <div>
                         <div className="flex flex-col w-full items-center gap-2 md:flex-row">
                             <div className='input input-green w-full'>
-                                <input type="text" placeholder="from" />
+                                <input required type="text" placeholder="from" />
                             </div>
                             <button className="w-6 h-6 md:w-12 md:h-12"><Image src='/images/swap.png' width={24} height={24} alt="swap icon" /></button>
                             <div className='input input-green w-full'>
-                                <input type="text" placeholder="to" />
+                                <input required type="text" placeholder="to" />
                             </div>
                         </div>
                     </div>
@@ -129,21 +144,21 @@ const OrderForm = () => {
                         <div className="flex flex-col gap-2 flex-grow h-fit">
                             <h1>Delivered before:</h1>
                             <div className="input input-green h-full">
-                                <input className='date-input' type="date" />
+                                <input required className='date-input' type="date" />
                             </div>
                         </div>
 
                         <div className="flex flex-col gap-2 flex-grow h-fit">
                             <h1>Delivered after:</h1>
                             <div className="input input-green h-full">
-                                <input className='date-input' type="date" />
+                                <input required className='date-input' type="date" />
                             </div>
                         </div>
 
                         <div className="flex-grow">
                             <h1 className="mb-2">Quantity:</h1>
                             <div className="input input-green items-center justify-center gap-2">
-                                <input value={quantity} readOnly className="max-w-fit" />
+                                <input required value={quantity} readOnly className="max-w-fit" />
                                 <div className="flex flex-col gap-1 items-end">
                                     <button type="button" onClick={increaseQuantity}>
                                         <Image src='/images/Arrow.png' width={20} height={20} />
@@ -182,9 +197,20 @@ const OrderForm = () => {
                 </div>
 
                 <div className="flex w-full gap-2 text-white">
-                    <button className="py-3 bg-accentGreen w-full rounded-lg">Complete Order</button>
+                    <button className="py-4 bg-accentGreen w-full rounded-lg flex items-center justify-center" type="submit" onClick={handleSubmit}>
+                        Complete Order
+                    </button>
+                </div>
+            </form>
+
+            {/* Success Toast */}
+            <div className="relative w-full h-fit grid">
+                <div className={`${isSubmitting ? 'opacity-100' : 'opacity-0'} col-start-1 row-start-1 m-auto h-fit w-fit transition-opacity duration-500`}><Loader/></div>
+                <div className={` ${showToast ? 'opacity-100' : 'opacity-0'} col-start-1 row-start-1 w-fit m-auto px-8 py-4 glass z-20 border-2 border-white bottom-0 right-0 rounded-lg transition-opacity duration-500`}>
+                    <h5 className="text-accentGreen text-lg font-semibold">Order Complete!</h5>
                 </div>
             </div>
+            
         </>
     )
 }
