@@ -23,9 +23,9 @@ requests along their routes, earning rewards for their efforts. The platform ens
 </p>
 
 <div>
-<img src="https://github.com/user-attachments/assets/bc81e457-e0b1-43a6-991d-97106576813a" align="left"  height="315px" width="auto"/>
+<img src="https://github.com/user-attachments/assets/12f277c7-b1e4-4ff1-9a96-2baa4d37fc90" align="right" height="auto" width="52.25"/> 
 
-<img src="https://github.com/user-attachments/assets/12f277c7-b1e4-4ff1-9a96-2baa4d37fc90" align="right" height="315px" width="auto"/> 
+<img src="https://github.com/user-attachments/assets/bc81e457-e0b1-43a6-991d-97106576813a" align="left"  height="auto" width="47.75"/>
 </div>
 
 
